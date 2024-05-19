@@ -16,5 +16,27 @@ export const CurrentlyReading = ({
   currentSentenceIdx: number;
   sentences: string[];
 }) => {
-  return <div data-testid="currently-reading"></div>;
+  function renderSpanTagWithCurrentSentence(
+    currentWordRange:Array<number>,
+    currentSentenceIdx:number,
+    sentences:Array<String>)
+  {
+    let outputRender = ''
+    let currentSentence = sentences[currentSentenceIdx]
+
+    for(let word of currentSentence){
+      
+    }
+
+    return outputRender
+  }
+
+  return <>
+  <div data-testid="currently-reading">
+    ${renderSpanTagWithCurrentSentence(currentWordRange,currentSentenceIdx,sentences)}
+  </div>
+  <div className="container">
+    ${sentences.join('')}
+  </div>
+  </>;
 };

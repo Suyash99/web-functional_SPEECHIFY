@@ -16,8 +16,20 @@ const useSpeech = (sentences: Array<string>) => {
 
   const [playbackState, setPlaybackState] = useState<PlayingState>("paused");
 
-  const play = () => {};
-  const pause = () => {};
+  const play = () => {
+    if(currentSentenceIdx === 0) setPlaybackState('initialized')
+    else setPlaybackState('playing')
+  };
+  const pause = () => {
+    if(currentSentenceIdx === sentences.length-1) setPlaybackState('ended')
+    else {
+      setPlaybackState('paused')
+      console.log(`Paused state. will set current index and word range to point at this index- ${currentSentenceIdx}!`)
+
+      setCurrentSentenceIdx(currentSentenceIdx)
+      setCurrentWordRange([currentSentenceIdx-1, currentSentenceIdx])
+  }
+  };
 
   return {
     currentSentenceIdx,
